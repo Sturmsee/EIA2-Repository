@@ -1,0 +1,17 @@
+* {
+    background-image: "./media/bd.jpg";
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+body {
+
+}
+
+div {
+
+}
+
+#Abgaben {
+    display: block;
+    align-content: center;
+}
