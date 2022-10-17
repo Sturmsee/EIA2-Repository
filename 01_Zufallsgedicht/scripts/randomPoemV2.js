@@ -5,6 +5,9 @@ let objectArray = ["Obst", "Ersti-Tickets", "HFU-Karte", "Bücher", "Kuchen"];
 let poem = [["", "", ""], ["", "", ""], ["", "", ""], ["", "", ""], ["", "", ""]];
 //generating the a random poem without using dublicates
 function generatePoem() {
+    consoleLogs(subjectArray);
+    consoleLogs(objectArray);
+    consoleLogs(predicateArray);
     for (let i = 0; i < 5; i++) {
         let arrayLength = objectArray.length;
         let wordPositionInArray;
@@ -15,18 +18,21 @@ function generatePoem() {
                     wordPositionInArray = randomNumber(arrayLength);
                     addStringToArray(coinFlip(), i, subjectArray, wordPositionInArray);
                     subjectArray.splice(wordPositionInArray, 1);
+                    consoleLogs(subjectArray);
                     break;
                 //Pradicates
                 case 1:
                     wordPositionInArray = randomNumber(arrayLength);
                     addStringToArray(j, i, predicateArray, wordPositionInArray);
                     predicateArray.splice(wordPositionInArray, 1);
+                    consoleLogs(predicateArray);
                     break;
                 //Objects
                 case 2:
                     wordPositionInArray = randomNumber(arrayLength);
                     addStringToArray(coinFlip(), i, objectArray, wordPositionInArray);
                     objectArray.splice(wordPositionInArray, 1);
+                    consoleLogs(objectArray);
                     break;
             }
         }
@@ -66,12 +72,9 @@ function addStringToArray(arrayPos, index, wordArray, wordPositionInArray_) {
         addStringToArray(coinFlip(), index, wordArray, wordPositionInArray_);
     }
 }
-function consoleLogs() {
-    console.log(objectArray.length);
-    console.log(objectArray);
-    console.log(objectArray.length);
-    console.log(objectArray);
+function consoleLogs(array_) {
+    console.log(array_.length);
+    console.log(array_);
 }
-//consoleLogs();
 writePoem();
 //# sourceMappingURL=randomPoemV2.js.map

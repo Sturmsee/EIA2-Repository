@@ -6,6 +6,10 @@ let poem: string[][] = [["", "", ""], ["", "", ""], ["", "", ""], ["", "", ""], 
 
 //generating the a random poem without using dublicates
 function generatePoem(): void {
+    
+    consoleLogs(subjectArray);
+    consoleLogs(objectArray);
+    consoleLogs(predicateArray);
 
     for (let i = 0; i < 5; i++) {
 
@@ -21,6 +25,7 @@ function generatePoem(): void {
                     wordPositionInArray = randomNumber(arrayLength);
                     addStringToArray(coinFlip(), i, subjectArray, wordPositionInArray);
                     subjectArray.splice(wordPositionInArray, 1);
+                    consoleLogs(subjectArray);
                     break;
                 
                 //Pradicates
@@ -28,6 +33,7 @@ function generatePoem(): void {
                     wordPositionInArray = randomNumber(arrayLength);
                     addStringToArray(j, i, predicateArray, wordPositionInArray);
                     predicateArray.splice(wordPositionInArray, 1);
+                    consoleLogs(predicateArray);
                     break;
                 
                 //Objects
@@ -35,9 +41,10 @@ function generatePoem(): void {
                     wordPositionInArray = randomNumber(arrayLength);
                     addStringToArray(coinFlip(), i, objectArray, wordPositionInArray);
                     objectArray.splice(wordPositionInArray, 1);
+                    consoleLogs(objectArray);
                     break;
             }
-                
+            
             
         }
     }
@@ -84,13 +91,9 @@ function addStringToArray(arrayPos: number, index: number, wordArray: string[], 
     }
 }
 
-function consoleLogs(): void {
-    console.log(objectArray.length);
-    console.log(objectArray);
-    
-    console.log(objectArray.length);
-    console.log(objectArray);
+function consoleLogs(array_: string[]): void {
+    console.log(array_.length);
+    console.log(array_);
 }
 
-//consoleLogs();
 writePoem();
