@@ -3,7 +3,6 @@ let predicateArray: string[] = ["malt", "zeigt", "reimt", "schreit", "kocht"];
 let objectArray: string[] = ["Obst", "Ersti-Tickets", "HFU-Karte", "Bücher", "Kuchen"];
 let poem: string[][] = [["", "", ""], ["", "", ""], ["", "", ""], ["", "", ""], ["", "", ""]];
 
-
 //generating the a random poem without using dublicates
 function generatePoem(): void {
     
