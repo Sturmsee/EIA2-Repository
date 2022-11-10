@@ -10,5 +10,7 @@ namespace itemList {
         date: string;
     }
 
-    export let Items: Item[];
+    export interface Items {
+        [type: string]: Item[];
+        }
 }
