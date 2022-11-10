@@ -1,0 +1,6 @@
+{"Items": [
+    {"name": "Milch", "amount": 5, "notes": "Frischmilch", "date": "2022-11-08"},
+    {"name": "Brot", "amount": 1, "notes": "Ein Laib", "date": "2022-10-31"},
+    {"name": "Seife", "amount": 2, "notes": "Blockseifen", "date": "2022-11-01"}
+]
+}
