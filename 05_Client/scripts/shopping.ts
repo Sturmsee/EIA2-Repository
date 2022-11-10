@@ -5,40 +5,53 @@ namespace itemList {
     let formData = new FormData();
     let submitButton: HTMLElement = <HTMLInputElement>document.getElementById("addItemSubmit");
     let url: string = "";
+    let data: string;
     //let createImg: HTMLImageElement = document.createElement("img");
     //let createItem: HTMLElement = document.createElement("li");
 
-    let deleteIcons: NodeListOf<HTMLElement> = document.querySelectorAll(".deleteIcon"); 
+    let deleteIcons: NodeListOf<HTMLElement> = document.querySelectorAll(".deleteIcon");
     let editIcons: NodeListOf<HTMLElement> = document.querySelectorAll(".editIcon");
+    //let allItems: Items = [];
 
     function handleLoad(_event: Event): void {
 
         submitButton.addEventListener("click", addItem);
+        requestData();
 
-       
     }
 
-    function decideButton(_event: Event): void {
+    function requestData(): void {
         let _url: string = url;
-        
-
+        _url += "/request";
+        communicate(_url);
     }
+
+    function generateList(): void {
+        
+    }
+
+    /* function decideButton(_event: Event): void {
+         let _url: string = url;
+         
+ 
+     } */
 
     function addItem(_event: Event): void {
         let _url: string = url;
         formData = new FormData(document.forms[0]);
         let query: URLSearchParams = new URLSearchParams(<any>formData);
-        _url += "?" + query.toString() + setDate(); 
-
+        query.append("date", setDate());
+        _url += "/add" + "?" + query.toString();
+        communicate(_url);
     }
 
-    function deleteItem(_event: Event): void {
-        
-    }
-
-    function editItem(_event: Event): void {
-
-    }
+    /* function deleteItem(): void {
+         
+     }
+ 
+     function editItem(): void {
+ 
+     } */
 
 
     function setDate(): string {
@@ -54,17 +67,8 @@ namespace itemList {
         console.log("Response", response);
         console.log(responseServer);
 
-        serverAnswer(responseServer);
+
     }
 
-    function serverAnswer(_answer: string): void {
-        let span: HTMLSpanElement = document.createElement("span");
-        let p: HTMLElement = document.createElement("p");
-        let div: HTMLElement = <HTMLElement> document.getElementById("shoppingList");
 
-        span.id = "popUp";
-        p.innerHTML = _answer;
-        span.appendChild(p);
-        div.appendChild(span);
-    }
 }
