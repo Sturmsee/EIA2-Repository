@@ -65,7 +65,7 @@ namespace itemList {
         let query: URLSearchParams = new URLSearchParams(<any>formData);
         query.append("date", setDate());
         _url += "/add" + "?" + query.toString();
-        communicate(_url);
+        //communicate(_url);
         alert("Item added!");
     }
 
