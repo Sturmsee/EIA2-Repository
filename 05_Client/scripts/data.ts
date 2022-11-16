@@ -8,6 +8,7 @@ namespace itemList {
         amount: number;
         notes: string;
         date: string;
+        id?: string;
     }
 
     export interface Items {
