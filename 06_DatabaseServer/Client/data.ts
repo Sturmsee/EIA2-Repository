@@ -19,7 +19,7 @@ namespace itemList06 {
         [type: string]: Item[];
     }
 
-    export interface formDataJSON {
+    export interface FormDataJSON {
         [key: string]: FormDataEntryValue | FormDataEntryValue[];
     }
 }
