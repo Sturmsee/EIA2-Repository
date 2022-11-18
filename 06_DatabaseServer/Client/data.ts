@@ -8,10 +8,18 @@ namespace itemList06 {
         amount: number;
         notes: string;
         date: string;
-        id: string;
+    }
+
+    export interface responseItem {
+        status: String;
+        data: Item;
     }
 
     export interface Items {
         [type: string]: Item[];
-        }
+    }
+
+    export interface formDataJSON {
+        [key: string]: FormDataEntryValue | FormDataEntryValue[];
+    }
 }
