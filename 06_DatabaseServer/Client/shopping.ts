@@ -3,7 +3,7 @@ namespace itemList06 {
     window.addEventListener("load", handleLoad);
 
     let formData = new FormData();
-    let form: HTMLFormElement = <HTMLFormElement> document.getElementById("addItem");
+    let form: HTMLFormElement;
 
     let databaseUrl: string = "https://webuser.hs-furtwangen.de/~schiffma/Database/?";
     let collection: string = "&collection=Items";
@@ -30,6 +30,7 @@ namespace itemList06 {
         _url += "command=find" + collection;
         await communicate(_url);
         generateList();
+        form = <HTMLFormElement> document.getElementById("addItem");
     }
 
     function generateList(): void {
