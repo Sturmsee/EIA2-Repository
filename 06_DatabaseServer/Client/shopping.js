@@ -3,7 +3,7 @@ var itemList06;
 (function (itemList06) {
     window.addEventListener("load", handleLoad);
     let formData = new FormData();
-    let form = document.getElementById("addItem");
+    let form;
     let databaseUrl = "https://webuser.hs-furtwangen.de/~schiffma/Database/?";
     let collection = "&collection=Items";
     let data;
@@ -22,6 +22,7 @@ var itemList06;
         _url += "command=find" + collection;
         await communicate(_url);
         generateList();
+        form = document.getElementById("addItem");
     }
     function generateList() {
         let imgLink = [editIcon, deleteIcon];
@@ -58,6 +59,7 @@ var itemList06;
                 let values = formData.getAll(key);
                 json[key] = values.length > 0 ? values : values[0];
             }
+            //console.log(json[key]);
         }
         let query = new URLSearchParams();
         console.log(json);

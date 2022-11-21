@@ -77,6 +77,7 @@ namespace itemList06 {
                 let values: FormDataEntryValue[] = formData.getAll(key);
                 json[key] = values.length > 0 ? values : values[0];
             }
+            //console.log(json[key]);
         }
         
         let query: URLSearchParams = new URLSearchParams();
