@@ -19,6 +19,11 @@ var shoppingList;
         }
     }
     function addItem(_event) {
+        let AddItem = { name: "", amount: 0, notes: "", date: "" };
+        AddItem.name = "";
+        AddItem.amount = 0;
+        AddItem.notes = "";
+        AddItem.date = "";
         console.log("Item was added.");
     }
     function deleteItem(_event) {
@@ -27,5 +32,6 @@ var shoppingList;
     function editItem(_event) {
         console.log("Item can now be edited.");
     }
+    function dateToString() { }
 })(shoppingList || (shoppingList = {}));
 //# sourceMappingURL=shopping.js.map

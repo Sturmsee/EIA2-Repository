@@ -110,10 +110,118 @@ var birds;
         c2d.fill();
     }
     function paintTrees() {
+        let xPosition = [20, 50, 100, 400, 650];
+        let yPosition = [450, 400, 550, 430, 570];
+        let treeWidth = [10, 5, 15, 20, 50];
+        let treeHeight = [30, 20, 14, 25, 100];
+        c2d.fillStyle = "brown";
+        for (let i = 0; i < xPosition.length; i++) {
+            c2d.beginPath();
+            c2d.fillRect(xPosition[i], yPosition[i], treeWidth[i], treeHeight[i]);
+            c2d.closePath();
+            c2d.fill();
+        }
+        c2d.fillStyle = "green";
+        //Width 10, Height 30
+        c2d.beginPath();
+        c2d.moveTo(20, 430);
+        c2d.lineTo(10, 430);
+        c2d.lineTo(20, 410);
+        c2d.lineTo(10, 410);
+        c2d.lineTo(20, 400);
+        c2d.lineTo(40, 410);
+        c2d.lineTo(30, 410);
+        c2d.lineTo(40, 430);
+        c2d.lineTo(30, 430);
+        c2d.closePath();
+        c2d.fill();
+        //Width 5, Height 20
+        c2d.beginPath();
+        c2d.moveTo(50, 390);
+        c2d.lineTo(40, 390);
+        c2d.lineTo(50, 385);
+        c2d.lineTo(40, 385);
+        c2d.lineTo(50, 380);
+        c2d.lineTo(60, 385);
+        c2d.lineTo(50, 385);
+        c2d.lineTo(60, 390);
+        c2d.lineTo(50, 390);
+        c2d.closePath();
+        c2d.fill();
+        //Width 15, Height 14
+        c2d.beginPath();
+        c2d.moveTo(100, 540);
+        c2d.lineTo(90, 540);
+        c2d.lineTo(100, 535);
+        c2d.lineTo(90, 535);
+        c2d.lineTo(100, 530);
+        c2d.lineTo(125, 535);
+        c2d.lineTo(115, 535);
+        c2d.lineTo(125, 540);
+        c2d.lineTo(100, 540);
+        c2d.closePath();
+        c2d.fill();
+        //Width 20, Height 25
+        c2d.beginPath();
+        c2d.moveTo(400, 415);
+        c2d.lineTo(380, 415);
+        c2d.lineTo(400, 405);
+        c2d.lineTo(380, 405);
+        c2d.lineTo(400, 390);
+        c2d.lineTo(440, 405);
+        c2d.lineTo(420, 405);
+        c2d.lineTo(440, 415);
+        c2d.lineTo(400, 415);
+        c2d.closePath();
+        c2d.fill();
+        //Width 50, Height 100
+        c2d.beginPath();
+        c2d.fillStyle = "marone";
+        c2d.moveTo(630, 520);
+        c2d.fillRect(630, 520, 20, 30);
+        c2d.closePath();
+        c2d.fill();
     }
     function paintSnowman() {
+        c2d.fillStyle = "snow";
+        c2d.strokeStyle = "grey";
+        c2d.beginPath();
+        c2d.arc(570, 580, 30, 0, 2 * Math.PI);
+        c2d.arc(570, 550, 20, 0, 2 * Math.PI);
+        c2d.arc(570, 530, 10, 0, 2 * Math.PI);
+        c2d.closePath();
+        c2d.stroke();
+        c2d.fill();
+        c2d.fillStyle = "black";
+        c2d.beginPath();
+        c2d.arc(570, 560, 3, 0, 2 * Math.PI);
+        c2d.arc(570, 570, 3, 0, 2 * Math.PI);
+        c2d.closePath();
+        c2d.fill();
+        c2d.beginPath();
+        c2d.fillRect(560, 520, 7, 12);
+        c2d.fillRect(555, 530, 15, 3);
+        c2d.closePath();
+        c2d.fill();
     }
     function paintBirds() {
+        let colors = ["blue", "red", "lime", "yellow", "cyan", "violet", "black", "orange"];
+        //Le small birbs
+        for (let i = 0; i < 20; i++) {
+            c2d.fillStyle = colors[Math.floor(Math.random() * colors.length)];
+            let positionX = Math.floor(Math.random() * 399) + 400;
+            let positionY = Math.floor(Math.random() * 600);
+            c2d.beginPath();
+            c2d.arc(positionX, positionY, 10, 0, 2 * Math.PI);
+            if (i % 2 == 0) {
+                c2d.arc(positionX + 5, positionY - 3, 5, 0, 2 * Math.PI);
+            }
+            else {
+                c2d.arc(positionX - 3, positionY - 3, 5, 0, 2 * Math.PI);
+            }
+            c2d.closePath();
+            c2d.fill();
+        }
     }
 })(birds || (birds = {}));
 //# sourceMappingURL=canvas.js.map
