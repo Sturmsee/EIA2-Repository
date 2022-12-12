@@ -17,30 +17,19 @@ var oldMcDonald;
         h = document.getElementById("song");
         p = document.getElementById("singing");
         singingAnimal();
-        //singSong();
-        //counter = 0;
-        //setTimeout(singSong, 4000);
     }
     //Making a delay in the loop
-    const delay = async (milliseconds = 5000) => { new Promise((resolve) => setTimeout(resolve, milliseconds)); };
-    /*async function singSong(): Promise<void>{
-        for (let animal of animals) {
-            h.innerText = animal.animal;
-            for (let i = 0; i < verseCow.length; i++) {
-                p.innerText = animal.verse[i];
-                console.log(i);
-                console.log(animal.verse[i]);
-                console.log(p.innerText);
-                await delay(5000);
-            }
-        }
-    }*/
+    // let delay = async (milliseconds: number = 5000) => {new Promise((resolve) => setTimeout(resolve, milliseconds))};
+    function delay(milliseconds = 5000) {
+        return new Promise((resolve) => setTimeout(resolve, milliseconds));
+    }
     async function singingAnimal() {
         for (let i = 0; i < animals.length; i++) {
             h.innerText = animals[i].animal;
             for (let j = 0; j < oldMcDonald.verseCow.length; j++) {
                 p.innerText = animals[i].verse[j];
-                await delay(5000);
+                //console.log(p.innerText);
+                await delay(2000);
             }
         }
     }
