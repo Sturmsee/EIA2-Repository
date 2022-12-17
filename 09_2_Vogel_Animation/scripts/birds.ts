@@ -21,7 +21,9 @@ namespace animation {
             if (this.flying) {
                 c2d.strokeStyle = this.color;
                 c2d.beginPath();
-
+                c2d.moveTo(this.positionX, this.positionY);
+                c2d.arcTo(this.positionX, this.positionY, this.positionX + 3, this.positionY, 3);
+                c2d.arcTo(this.positionX + 3, this.positionY, this.positionX + 6, this.positionY, 3);
                 c2d.closePath();
                 c2d.stroke();
             }
@@ -34,6 +36,32 @@ namespace animation {
                 c2d.fill();
 
                 c2d.strokeStyle = "yellow";
+            }
+        }
+
+        drawHead(_movement: number): void {
+            c2d.beginPath();
+            c2d.fillStyle = this.color;
+            c2d.arc(this.positionX - (5 + (_movement / 2)), this.positionY - 4 + _movement, 5, 0, 2 * Math.PI);
+            c2d.closePath();
+            c2d.fill();
+
+            c2d.fillStyle = "yellow";
+            if(_movement != 0) {
+                c2d.beginPath();
+                c2d.moveTo(this.positionX - 5, this.positionY - 2);
+                c2d.lineTo(this.positionX - 8, this.positionY - 3);
+                c2d.lineTo(this.positionX - 5, this.positionY - 4);
+                c2d.closePath();
+                c2d.fill();
+            }
+            else {
+                c2d.beginPath();
+                c2d.moveTo(this.positionX - 6, this.positionY + _movement);
+                c2d.lineTo(this.positionX - 5, this.positionY + _movement + 3);
+                c2d.lineTo(this.positionX - 4, this.positionY + _movement);
+                c2d.closePath();
+                c2d.fill();
             }
         }
     }

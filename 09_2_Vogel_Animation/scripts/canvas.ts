@@ -6,8 +6,8 @@ namespace animation {
     let bgImage: ImageData;
     let birds: Bird[];
 
-    let posX: number[] = [];
-    let posY: number[] = [];
+    let posX: number[] = [125, 240, 350, 444, 666, 190, 200, 210, 180, 170];
+    let posY: number[] = [450, 500, 465, 410, 424, 200, 190, 180, 190, 180];
     let colours: string[] = ["red", "green", "orange", "blue", "purple", "lime", "salmon", "darkgoldenrod", "deeppink", "black"];
     let birdsFly: boolean = false;
 
@@ -15,8 +15,8 @@ namespace animation {
 
     function handleLoad(_event: Event): void {
 
-        canvas = <HTMLCanvasElement> document.querySelector("canvas");
-        c2d = <CanvasRenderingContext2D> canvas.getContext("2d");
+        canvas = <HTMLCanvasElement>document.querySelector("canvas");
+        c2d = <CanvasRenderingContext2D>canvas.getContext("2d");
 
         createBackground();
         paintTrees();
@@ -25,31 +25,47 @@ namespace animation {
         bgImage = c2d.getImageData(0, 0, 800, 600);
 
         for (let i = 0; i < 10; i++) {
-            if(i > 4) {
+            if (i > 4) {
                 birdsFly = true;
             }
             let bird = new Bird(posX[i], posY[i], colours[i], birdsFly);
             birds.push(bird);
         }
 
+        animate();
     }
 
     async function animate(): Promise<void> {
         while (true) {
+            c2d.putImageData(bgImage, 0, 0);
             for (let i = 0; i < birds.length; i++) {
-                if (birds[i].flying) {
-
+                if (i % 2 == 0) {
+                    if (birds[i].flying) {
+                        birds[i].positionX = + 5;
+                        birds[i].positionY = + 5;
+                        birds[i].draw();
+                    }
+                    else {
+                        birds[i].drawHead(5);
+                    }
                 }
                 else {
-
+                    if (birds[i].flying) {
+                        birds[i].positionX = posX[i];
+                        birds[i].positionY = posY[i];
+                        birds[i].draw();
+                    }
+                    else {
+                        birds[i].drawHead(0);
+                    }
                 }
             }
             delay(2000);
         }
-        
+
     }
 
-    function delay (milliseconds: number = 5000){
+    function delay(milliseconds: number = 5000) {
         return new Promise((resolve) => setTimeout(resolve, milliseconds));
     }
 
@@ -167,8 +183,8 @@ namespace animation {
         let treeWidth: number[] = [10, 5, 15, 20, 50];
         let treeHeight: number[] = [30, 20, 14, 25, 100];
         c2d.fillStyle = "brown";
-        
-        for (let i = 0; i < xPosition.length; i++){
+
+        for (let i = 0; i < xPosition.length; i++) {
             c2d.beginPath();
             c2d.fillRect(xPosition[i], yPosition[i], treeWidth[i], treeHeight[i]);
             c2d.closePath();
@@ -234,7 +250,7 @@ namespace animation {
 
         //Width 50, Height 100
         c2d.beginPath();
-        c2d.fillStyle ="marone";
+        c2d.fillStyle = "marone";
         c2d.moveTo(630, 520);
         c2d.fillRect(630, 520, 20, 30);
         c2d.closePath();
